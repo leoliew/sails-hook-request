@@ -1,2 +1,1 @@
-# sails-hook-model-extension
-sails model hook , add additional model methods for sails.
+# sails-hook-request-info
