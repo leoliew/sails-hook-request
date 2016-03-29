@@ -1,0 +1,33 @@
+{
+  "name": "sails-hook-request-info",
+  "version": "0.0.2",
+  "description": "Hook for Sails.js of show request info.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leo Liu",
+  "license": "MIT",
+  "sails": {
+    "isHook": true
+  },
+  "bugs": {
+    "url": "https://github.com/leoliew/sails-hook-request-info/issues"
+  },
+  "homepage": "https://github.com/leoliew/sails-hook-request-info.git",
+  "keywords": [
+    "sails",
+    "sails.js",
+    "sails-hook",
+    "request",
+    "request-info"
+  ],
+  "dependencies": {
+    "bytes": "^2.1.0"
+  },
+  "contributors": [
+    {
+      "name": "Leo Liu"
+    }
+  ]
+}
