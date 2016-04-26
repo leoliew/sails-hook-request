@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-request-info",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Hook for Sails.js of show request info.",
   "main": "index.js",
   "scripts": {

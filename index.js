@@ -1,4 +1,3 @@
-var morgan = require('morgan');
 
 module.exports = function(sails) {
 
