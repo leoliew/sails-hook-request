@@ -1,4 +1,3 @@
-var morgan = require('morgan');
 
 module.exports = function(sails) {
 
@@ -36,6 +35,8 @@ module.exports = function(sails) {
               sails.log.error(line);
             } else if (res.statusCode >= 300) {
               sails.log.info(line);
+            } else if (req.url.startsWith('/api/v1/health') || req.url.startsWith('/favicon.ico')) {
+              sails.log.verbose(line);
             } else {
               sails.log.info(line);
             }

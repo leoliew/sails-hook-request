@@ -1,10 +1,10 @@
 {
   "name": "sails-hook-request-info",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "Hook for Sails.js of show request info.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/_mocha"
   },
   "author": "Leo Liu",
   "license": "MIT",
@@ -24,6 +24,11 @@
   ],
   "dependencies": {
     "bytes": "^2.1.0"
+  },
+  "devDependencies": {
+    "sails": "~0.11.3",
+    "should": "*",
+    "mocha": "*"
   },
   "contributors": [
     {
