@@ -35,6 +35,8 @@ module.exports = function(sails) {
               sails.log.error(line);
             } else if (res.statusCode >= 300) {
               sails.log.info(line);
+            } else if (req.url.startWith('/api/vi/health')) {
+              sails.log.verbose(line);
             } else {
               sails.log.info(line);
             }
