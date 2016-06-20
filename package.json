@@ -28,7 +28,8 @@
   "devDependencies": {
     "sails": "~0.11.3",
     "should": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "request": "2.68.0"
   },
   "contributors": [
     {
