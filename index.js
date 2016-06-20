@@ -19,16 +19,15 @@ module.exports = function(sails) {
       before: {
 
         'all /*': function (req, res, next) {
-
-
-          req.on("end", function () {
-            len = parseInt(res.getHeader('Content-Length'), 10);
+          
+          res.on("finish", function () {
+            var len = parseInt(res.get('Content-Length'), 10);
             if (isNaN(len)) {
               len = -1;
             } else {
               len = require('bytes')(len);
             }
-            line = req.headers['user-agent'] + '\" \"referer:' + (req.headers['referer'] || req.headers['referrer'] || '') + '\" \"' + (req.headers['x-forwarded-for'] || req.ip || (req.socket && req.socket.socket && req.socket.socket.remoteAddress) || req.socket.remoteAddress) + ' ' + req.method + ' ' + (req.originalUrl || req.url) + ' HTTP/' + req.httpVersionMajor + '.' + req.httpVersionMinor + ' ' + res.statusCode + '\" response size : ' + len + ' need time ' + (new Date() - req._startTime) + 'ms.';
+            line = req.headers['user-agent'] + '\" \"referer:' + (req.headers['referer'] || req.headers['referrer'] || '') + '\" \"' + (req.headers['x-forwarded-for'] || req.ip || (req.socket && req.socket.socket && req.socket.socket.remoteAddress) || req.socket.remoteAddress) + ' ' + req.method + ' ' + (req.originalUrl || req.url) + ' HTTP/' + req.httpVersionMajor + '.' + req.httpVersionMinor + ' ' + res.statusCode + '\" response size : ' + len + ' need time ' + res.get('X-Response-Time') + '.';
             if (res.statusCode >= 500) {
               sails.log.error(line);
             } else if (res.statusCode >= 400) {
@@ -41,8 +40,7 @@ module.exports = function(sails) {
               sails.log.info(line);
             }
           });
-          next();
-
+          require('response-time')()(req, res, next);
         }
       }
     },
