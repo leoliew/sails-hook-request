@@ -44,14 +44,8 @@ describe('Basic tests ::', function() {
 
   // Test that Sails can lift with the hook in place
   it('sails does not crash', function(done) {
-    console.log(sails.request.get);
     request.get('http://localhost:1342', function(err, res, body) {
-      if (err) { return done(err); }
-      try {
-        assert.equal(body, 'bar');
-      }
-      catch (e) {return done(e);}
-      return done();
+      done(err);
     });
   });
 
